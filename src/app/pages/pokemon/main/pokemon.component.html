@@ -1,1 +1,16 @@
-<p>main works!</p>
+<div class="pokemons">
+  <h2 class="text-white">Lista de Pokemons</h2>
+  <input type="text" class="form-control my-1" aria-describedby="filterPokemonList" placeholder="Buscar pokemon...">
+  <ul class="list-group d-flex" *ngFor="let pokemon of pokemons">
+    <a [routerLink]="['/home']" class="list-group-item d-flex list-group-item-action">
+      <div class="image-box">
+        <img src="{{pokemon.imageUrl}}" class="img-fluid" alt="quixote">
+      </div>
+      <div class="pokemon-info ml-2">
+        <h5>{{pokemon.name}}</h5>
+        <p *ngIf="pokemon.nationalPokedexNumber">Pokemon ID: {{pokemon.nationalPokedexNumber}}</p>
+        <span class="badge badge-secondary" *ngFor="let type of pokemon.types">{{type}}</span>
+      </div>
+    </a>
+  </ul>
+</div>
