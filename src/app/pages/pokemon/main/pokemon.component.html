@@ -2,16 +2,28 @@
   <h2 class="text-white">Lista de Pokemons</h2>
   <input type="text" class="form-control my-1" aria-describedby="filterPokemonList" placeholder="Buscar pokemon..."
     (keyup)="searchPokemon($event.target.value)">
-  <ul class="list-group d-flex" *ngFor="let pokemon of filteredPokemons">
-    <a [routerLink]="['/home']" class="list-group-item d-flex list-group-item-action">
-      <div class="image-box">
-        <img src="{{pokemon.imageUrl}}" class="img-fluid" alt="quixote">
-      </div>
-      <div class="pokemon-info ml-2">
-        <h5>{{pokemon.name}}</h5>
-        <p *ngIf="pokemon.nationalPokedexNumber">Pokemon ID: {{pokemon.nationalPokedexNumber}}</p>
-        <span class="badge badge-secondary" *ngFor="let type of pokemon.types">{{type}}</span>
-      </div>
-    </a>
-  </ul>
+  <div *ngIf="!isLoading">
+    <ul class="list-group d-flex" *ngFor="let pokemon of filteredPokemons">
+      <a [routerLink]="['/home']" class="list-group-item d-flex list-group-item-action">
+        <div class="image-box">
+          <img src="{{pokemon.imageUrl}}" class="img-fluid" alt="quixote">
+        </div>
+        <div class="pokemon-info ml-2">
+          <h5>{{pokemon.name}}</h5>
+          <p *ngIf="pokemon.nationalPokedexNumber">Pokemon ID: {{pokemon.nationalPokedexNumber}}</p>
+          <span class="badge badge-secondary" *ngFor="let type of pokemon.types">{{type}}</span>
+        </div>
+      </a>
+    </ul>
+  </div>
+</div>
+
+<!-- LOADING -->
+<div class="d-flex flex-column align-items-center justify-content-center" *ngIf="isLoading">
+  <div class="row">
+    <div class="spinner-grow text-light loading" role="status"></div>
+  </div>
+  <div class="row">
+    <span class="text-white mt-2">Carregando Pokemons...</span>
+  </div>
 </div>

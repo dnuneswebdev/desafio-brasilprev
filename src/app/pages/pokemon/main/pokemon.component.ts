@@ -10,7 +10,8 @@ import { Pokemon } from 'src/app/models/pokemon';
 export class PokemonComponent implements OnInit {
 
   pokemons: Pokemon[];
-  filteredPokemons: Pokemon[]
+  filteredPokemons: Pokemon[];
+  isLoading: boolean = true;
 
   constructor(private pokemonService: PokemonService) { }
 
@@ -19,6 +20,7 @@ export class PokemonComponent implements OnInit {
       .subscribe((pokemons: Pokemon[]) => {
         this.pokemons = pokemons;
         this.filteredPokemons = [...this.pokemons];
+        this.isLoading = false;
       });
   }
 

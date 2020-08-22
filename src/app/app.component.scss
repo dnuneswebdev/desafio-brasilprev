@@ -4,6 +4,13 @@
   transform: translate(-50%);
   width: 100%;
 }
+
 .main-wrapper {
   height: 100%;
+}
+
+@media (max-width: 414px) {
+  .title {
+    font-size: 2em;
+  }
 }
