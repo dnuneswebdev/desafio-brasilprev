@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonService } from 'src/app/services/pokemon.service';
-import { Pokemon, Card } from 'src/app/models/pokemon';
+import { Pokemon } from 'src/app/models/pokemon';
 
 @Component({
   selector: 'app-pokemon',
@@ -10,15 +10,22 @@ import { Pokemon, Card } from 'src/app/models/pokemon';
 export class PokemonComponent implements OnInit {
 
   pokemons: Pokemon[];
+  filteredPokemons: Pokemon[]
 
   constructor(private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
     this.pokemonService.getAllPokemons()
-      .subscribe((pokemons: Card) => {
-        this.pokemons = pokemons.cards
-        console.log(this.pokemons);
-      })
+      .subscribe((pokemons: Pokemon[]) => {
+        this.pokemons = pokemons;
+        this.filteredPokemons = [...this.pokemons];
+      });
+  }
+
+  searchPokemon(value: string) {
+    this.filteredPokemons = this.pokemons.filter((pokemon: Pokemon) => {
+      return pokemon.name.toLocaleLowerCase().includes(value.trim().toLocaleLowerCase());
+    });
   }
 
 }

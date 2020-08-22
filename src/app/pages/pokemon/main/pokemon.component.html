@@ -1,7 +1,8 @@
 <div class="pokemons">
   <h2 class="text-white">Lista de Pokemons</h2>
-  <input type="text" class="form-control my-1" aria-describedby="filterPokemonList" placeholder="Buscar pokemon...">
-  <ul class="list-group d-flex" *ngFor="let pokemon of pokemons">
+  <input type="text" class="form-control my-1" aria-describedby="filterPokemonList" placeholder="Buscar pokemon..."
+    (keyup)="searchPokemon($event.target.value)">
+  <ul class="list-group d-flex" *ngFor="let pokemon of filteredPokemons">
     <a [routerLink]="['/home']" class="list-group-item d-flex list-group-item-action">
       <div class="image-box">
         <img src="{{pokemon.imageUrl}}" class="img-fluid" alt="quixote">
