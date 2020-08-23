@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Pokemon, Card } from 'src/app/models/pokemon';
+import { PokemonService } from 'src/app/services/pokemon.service';
 
 @Component({
   selector: 'app-pokemon-details',
@@ -7,9 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PokemonDetailsComponent implements OnInit {
 
-  constructor() { }
+  pokemonId: string;
+  pokemonCard: Pokemon;
+  isLoading: boolean = true;
+
+  constructor(
+    private route: ActivatedRoute,
+    private pokemonService: PokemonService,
+  ) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe((routeId) => {
+      this.pokemonId = routeId['id'];
+      this.getPokemonInfo();
+    });
+  }
+
+  getPokemonInfo() {
+    this.pokemonService.getSinglePokemon(this.pokemonId)
+      .subscribe((pokemon: Card) => {
+        this.pokemonCard = pokemon.card
+        this.isLoading = false;
+        console.log(this.pokemonCard);
+      });
   }
 
 }

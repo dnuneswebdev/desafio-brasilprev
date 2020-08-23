@@ -1,12 +1,14 @@
-.title {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%);
+.title-box {
   width: 100%;
+
+  .title {
+    text-align: center;
+  }
 }
 
 .main-wrapper {
   height: 100%;
+  margin-top: 50px;
 }
 
 @media (max-width: 414px) {

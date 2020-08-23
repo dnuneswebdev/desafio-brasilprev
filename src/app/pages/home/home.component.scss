@@ -2,9 +2,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-}
 
-.home-box {
-  text-align: center;
+  .home-box {
+    padding: 20px;
+    background-color: #f7f7f7;
+    text-align: center;
+    border-radius: 5px;
+  }
 }

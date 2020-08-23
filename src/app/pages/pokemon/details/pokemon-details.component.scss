@@ -1,0 +1,65 @@
+.pokemon {
+  padding: 20px;
+  background-color: #f7f7f7;
+  margin-bottom: 30px;
+  border-radius: 5px;
+
+  .badge {
+    font-size: 50%;
+    vertical-align: middle;
+  }
+}
+
+.loading {
+  width: 6rem;
+  height: 6rem;
+  margin-top: 50px;
+}
+
+.mana {
+  background-image: url(../../../../assets/img/mana-types.png);
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  margin: 0 3px;
+}
+
+.mana.colorless {
+  background-position: -25px 0;
+}
+
+.mana.grass {
+  background-position: -25px -50px;
+}
+
+.mana.fire {
+  background-position: 0 0;
+}
+
+.mana.water {
+  background-position: -75px -50px;
+}
+
+.mana.lightning {
+  background-position: -50px -50px;
+}
+
+.mana.fighting {
+  background-position: -50px -25px;
+}
+
+.mana.metal {
+  background-position: -75px 0;
+}
+
+.mana.psychic {
+  background-position: -75px -25px;
+}
+
+.mana.fairy {
+  background-position: -50px 0;
+}
+
+.mana.darkness {
+  background-position: 0 -50px;
+}

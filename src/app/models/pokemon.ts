@@ -1,21 +1,23 @@
 export interface Card {
+  card: Pokemon;
   cards: Array<Pokemon>;
 }
 
 export interface Pokemon {
-  id: number;
+  id: string;
   name: string;
+  nationalPokedexNumber: number;
   types: Array<string>;
-  imgLow: string;
-  imgHigh: string;
-  attackList: Array<AttackList>;
+  imageUrl: string;
+  imageUrlHiRes: string;
+  attacks: Array<AttackList>;
   resistances: Array<Resistances>;
   weaknesses: Array<Weaknesses>;
 }
 
 export interface AttackList {
   name: string;
-  description: string;
+  text: string;
   manaCost: number;
   damage: string;
 }

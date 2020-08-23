@@ -19,4 +19,8 @@ export class PokemonService {
         });
       }));
   }
+
+  getSinglePokemon(pokemonId: string) {
+    return this.http.get<Card>(`${environment.api}/cards/${pokemonId}`);
+  }
 }
