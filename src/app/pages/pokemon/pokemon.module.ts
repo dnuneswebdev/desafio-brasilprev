@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PokemonComponent } from './main/pokemon.component';
 import { PokemonDetailsComponent } from './details/pokemon-details.component';
 import { PokemonRouting } from './pokemon.routing';
+import { SpinnerModule } from 'src/app/shared/components/spinner/spinner.module';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { PokemonRouting } from './pokemon.routing';
   imports: [
     CommonModule,
     PokemonRouting,
+    SpinnerModule
   ]
 })
 export class PokemonModule { }
