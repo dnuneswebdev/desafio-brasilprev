@@ -16,11 +16,14 @@ export class PokemonComponent implements OnInit {
   constructor(private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
-    this.pokemonService.getAllPokemons()
+    this.pokemonService.getAllPokemonCards()
       .subscribe((pokemons: Pokemon[]) => {
         this.pokemons = pokemons;
         this.filteredPokemons = [...this.pokemons];
         this.isLoading = false;
+      }, error => {
+        alert('Erro! Não foi possivel carregar as cartas!');
+        console.log(error);
       });
   }
 

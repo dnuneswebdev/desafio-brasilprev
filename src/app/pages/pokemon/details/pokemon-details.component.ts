@@ -27,11 +27,13 @@ export class PokemonDetailsComponent implements OnInit {
   }
 
   getPokemonInfo() {
-    this.pokemonService.getSinglePokemon(this.pokemonId)
+    this.pokemonService.getSinglePokemonCard(this.pokemonId)
       .subscribe((pokemon: Card) => {
         this.pokemonCard = pokemon.card
         this.isLoading = false;
-        console.log(this.pokemonCard);
+      }, error => {
+        alert('Erro! Não foi possivel carregar a carta!');
+        console.log(error);
       });
   }
 

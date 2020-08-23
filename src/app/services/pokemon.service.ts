@@ -11,7 +11,7 @@ export class PokemonService {
 
   constructor(private http: HttpClient) { }
 
-  getAllPokemons() {
+  getAllPokemonCards() {
     return this.http.get<Card>(`${environment.api}/cards`)
       .pipe(map((pokemon: Card) => {
         return pokemon.cards.sort((a: Pokemon, b: Pokemon) => {
@@ -20,7 +20,7 @@ export class PokemonService {
       }));
   }
 
-  getSinglePokemon(pokemonId: string) {
+  getSinglePokemonCard(pokemonId: string) {
     return this.http.get<Card>(`${environment.api}/cards/${pokemonId}`);
   }
 }

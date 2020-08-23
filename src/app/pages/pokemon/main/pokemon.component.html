@@ -6,7 +6,7 @@
     <ul class="list-group d-flex" *ngFor="let pokemon of filteredPokemons">
       <a [routerLink]="['/pokemon-details/', pokemon.id]" class="list-group-item d-flex list-group-item-action">
         <div class="image-box">
-          <img [src]="pokemon.imageUrl" class="img-fluid" alt="quixote">
+          <img [src]="pokemon.imageUrl" class="img-fluid" alt="{{pokemon.name}}">
         </div>
         <div class="pokemon-info ml-2">
           <h5>{{pokemon.name}}</h5>
